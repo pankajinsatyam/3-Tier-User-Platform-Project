@@ -1,0 +1,39 @@
+name: Enterprise DevSecOps CICD Pipeline
+on:
+  push:
+    branches:
+      - qa
+    paths:
+      - client/**
+      - server/**
+      - .github/workflows/qa-cicd.yml
+      - .github/workflows/Snyk.yml
+permissions:
+  contents: write
+  id-token: write
+  
+name: Snyk Scan
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Run Snyk
+        uses: snyk/actions/maven@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
