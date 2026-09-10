@@ -7,7 +7,6 @@ on:
     paths:
       - client/**
       - server/**
-      - .github/workflows/qa-cicd.yml
       - .github/workflows/Snyk.yml
 permissions:
   contents: write
