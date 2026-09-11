@@ -418,8 +418,8 @@ jobs:
           load: true
           push: false
           tags: |
-            devopsshack/nodejs-app:${{ github.sha }}
-            devopsshack/nodejs-app:latest
+            pankajinoracle/firstdocker:${{ github.sha }}
+            pankajinoracle/firstdocker:latest
 
       - name: Install Trivy
         uses: aquasecurity/setup-trivy@v0.2.6
@@ -434,7 +434,7 @@ jobs:
 
       - name: Run Trivy image scan (JSON)
         run: |
-          trivy image devopsshack/nodejs-app:${{ github.sha }} \
+          trivy image pankajinoracle/firstdocker:${{ github.sha }} \
             --format json \
             --output image-trivy-report.json \
             --severity HIGH,CRITICAL \
@@ -443,7 +443,7 @@ jobs:
 
       - name: Run Trivy image scan (TABLE)
         run: |
-          trivy image devopsshack/nodejs-app:${{ github.sha }} \
+          trivy image pankajinoracle/firstdocker:${{ github.sha }} \
             --format table \
             --severity HIGH,CRITICAL \
             --ignore-unfixed \
