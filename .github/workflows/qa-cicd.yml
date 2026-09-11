@@ -484,8 +484,8 @@ jobs:
         with:
           push: true
           tags: |
-            devopsshack/nodejs-app:${{ github.sha }}
-            devopsshack/nodejs-app:latest
+            pankajinoracle/firstdocker:${{ github.sha }}
+            pankajinoracle/firstdocker:latest
 
 
   update-qa-manifest:
