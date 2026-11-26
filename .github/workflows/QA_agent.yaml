@@ -1,6 +1,6 @@
 
 # Trigger Test-1
-name: Enterprise DevSecOps CICD Pipeline
+name: Synk CICD Pipeline
 on:
   push:
     branches:
